@@ -1,16 +1,16 @@
 import react from "react";
 import { Link } from 'react-router-dom'
 
-export default function Header(){
+export default function Header({theme, position}){
   return (
     <header className="absolute w-full z-50 px-4">
         <div className="container mx-auto py-5">
         <div className="flex flex-stretch items-center">
             <div className="w-56 items-center flex">
-            <img
-                src="assets/images/content/logo.png"
-                alt="Luxspace | Fulfill your house with beautiful furniture"
-            />
+                <Link to="/">
+                    <img src="/assets/images/content/logo.png" alt="Luxspace | Fulfill your house with beautiful furniture"/>
+                </Link>
+           
             </div>
             <div className="w-full"></div>
             <div className="w-auto">
@@ -19,16 +19,16 @@ export default function Header(){
                 id="menu">
                 <li className="mx-3 py-6 md:py-0">
 
-                    <Link to="/showcase" className="text-black md:text-white hover:underline">Showcase</Link>
+                    <Link to="/showcase" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "]}>Showcase</Link>
                 </li>
                 <li className="mx-3 py-6 md:py-0">
-                    <Link to="/Catalog" className="text-black md:text-white hover:underline">Catalog</Link>
+                    <Link to="/Catalog" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "]}>Catalog</Link>
                 </li>
                 <li className="mx-3 py-6 md:py-0">
-                    <Link to="/Delivery" className="text-black md:text-white hover:underline">Delivery</Link>
+                    <Link to="/Delivery" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "]}>Delivery</Link>
                 </li>
                 <li className="mx-3 py-6 md:py-0">
-                    <Link to="/Rewards" className="text-black md:text-white hover:underline">Rewards</Link>
+                    <Link to="/Rewards" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "]}>Rewards</Link>
 
                 </li>
             </ul>
