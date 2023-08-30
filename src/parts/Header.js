@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Header({theme, position}){
   return (
-    <header className="absolute w-full z-50 px-4">
+    <header className={[position, "w-full z-40 px-4"].join(" ")}>
         <div className="container mx-auto py-5">
         <div className="flex flex-stretch items-center">
             <div className="w-56 items-center flex">
@@ -19,16 +19,16 @@ export default function Header({theme, position}){
                 id="menu">
                 <li className="mx-3 py-6 md:py-0">
 
-                    <Link to="/showcase" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "]}>Showcase</Link>
+                    <Link to="/showcase" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "].join(" ")}>Showcase</Link>
                 </li>
                 <li className="mx-3 py-6 md:py-0">
-                    <Link to="/Catalog" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "]}>Catalog</Link>
+                    <Link to="/Catalog" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "].join(" ")}>Catalog</Link>
                 </li>
                 <li className="mx-3 py-6 md:py-0">
-                    <Link to="/Delivery" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "]}>Delivery</Link>
+                    <Link to="/Delivery" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "].join(" ")}>Delivery</Link>
                 </li>
                 <li className="mx-3 py-6 md:py-0">
-                    <Link to="/Rewards" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "]}>Rewards</Link>
+                    <Link to="/Rewards" className={["hover:underline", theme==='white' ? "text-black md:text-white " : "text-white md:text-black "].join(" ")}>Rewards</Link>
 
                 </li>
             </ul>
