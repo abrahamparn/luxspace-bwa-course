@@ -2,8 +2,8 @@ import react from "react";
 import Header from "parts/Header";
 import Breadcrumb from "components/Breadcrumb";
 
-// import BrowsTheRoom from "parts/HomePage/BrowsTheRoom";
-// import JustArrive from "parts/HomePage/JustArrive";
+import ProductDetails from "parts/Details/ProductDetails";
+import Suggestion from "parts/Details/Suggestion";
 import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
 import Clients from "parts/Clients";
@@ -18,6 +18,8 @@ export default function HomePage(){
                 { url: "/categories/91231/products/7888", name: "Details" },
                 ]}
             ></Breadcrumb>
+            <ProductDetails/>
+            <Suggestion/>
             <Clients/>
             <Sitemap/>
             <Footer/>
