@@ -1,5 +1,6 @@
 import useAsync from 'helpers/hooks/useAsync'
 import React, {useEffect} from 'react'
+import fetchData from 'helpers/fetch'
 
 export default function BrowsTheRoom() {
   const {data, status, error, run, isLoading } = useAsync({data: {username:""}})
@@ -7,12 +8,8 @@ export default function BrowsTheRoom() {
   useEffect(() =>{
     run(
       fetch(
-        "https://fa2ee173-b113-4690-afff-af5f874e94a4.mock.pstmn.io/api/categories/?page=1&limit=4"
-        ).then( async response =>{
-          const jsonResponse = await response.json()
-          if(response.ok) return jsonResponse
-          throw new Error(JSON.stringify(jsonResponse))
-        })
+        {url: "/api/categories/?page=1&limit=4"}
+        )
     )
 
   }, [run])
