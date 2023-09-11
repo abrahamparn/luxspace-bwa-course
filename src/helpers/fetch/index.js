@@ -1,7 +1,9 @@
 export default function fetchData({ 
     url, 
     method = 'GET', 
-    host = process.env.REACT_APP_API_HOST}
+    host = process.env.REACT_APP_API_HOST
+
+}
     ){
         return fetch(`${host}${url}`, {
             method, mode: "cors", headers: {"Content-Type": "application/json"}
