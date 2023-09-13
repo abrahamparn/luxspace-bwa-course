@@ -1,12 +1,13 @@
 import React from 'react'
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
-export default function ProductDetails() {
+export default function ProductDetails(data) {
   return (  
     <section className="container mx-auto">
     <div className="flex flex-wrap my-4 md:my-12">
       <div className="w-full md:hidden px-4">
-        <h2 className="text-5xl font-semibold">Chair Thatty</h2>
-        <span className="text-xl">IDR 12.000.000</span>
+        <h2 className="text-5xl font-semibold">{data.data.title}</h2>
+        <span className="text-xl">IDR {data.data.price}</span>
       </div>
       <div className="flex-1">
         <div className="slider">
@@ -85,8 +86,8 @@ export default function ProductDetails() {
         </div>
       </div>
       <div className="flex-1 px-4 md:p-6">
-        <h2 className="text-5xl font-semibold">Chair Thatty</h2>
-        <p className="text-xl">IDR 12.000.000</p>
+        <h2 className="text-5xl font-semibold">{data.data.title}</h2>
+        <p className="text-xl">IDR {data.data.price}</p>
 
         <a
           href="cart.html"
@@ -118,6 +119,9 @@ export default function ProductDetails() {
         <hr className="my-8" />
 
         <h6 className="text-xl font-semibold mb-4">About the product</h6>
+        {
+          data.data.description ? ReactHtmlParser(data.data.description) : "What the fuck"
+        }
         <p className="text-xl leading-7 mb-6">
           Tailored to a level of perfection synonymous with that of a Savile
           Row suit and with understated quality in the detail, Jetty has been
