@@ -1,7 +1,26 @@
-import react from "react";
+import react, {useLayoutEffect, useRef, useState} from "react";
 import { Link } from 'react-router-dom'
 
+import { useGlobalContext } from "helpers/hooks/useGlobalContext";
 export default function Header({theme, position}){
+    const [toggleMainMenu, setToggleMainMenu] = useState(false)
+    const [isChartChanged, setChartChanged] = useState(false)
+    const {state} = useGlobalContext()
+
+    const prevCart = useRef(state?.cart || {})
+
+    useLayoutEffect(() => {
+      if(prevCart.current !== state.cart){
+        prevCart.current = state?.cart || {}
+        setChartChanged(true)
+        setTimeout(() => {
+            setChartChanged(false)
+        }, 550);
+      }
+    
+      
+    }, [state.chart])
+
   return (
     <header className={[position, "w-full z-20 px-4"].join(" ")}>
         <div className="container mx-auto py-5">
@@ -59,8 +78,15 @@ export default function Header({theme, position}){
                 </button>
                 </li>
                 <li className="ml-6">
-                <Link className={["flex items-center justify-center w-8 h-8", 
-                theme === "white" ? "text-black md:text-white" : "text-white md:text-black"].join("")} to="/cart">
+                <Link 
+                    className=
+                    {["flex items-center justify-center w-8 h-8", 
+                        theme === "white" 
+                        ? "text-black md:text-white" 
+                        : "text-white md:text-black",
+                        state.cart && Object.keys(state.cart).length > 0 ? "cart-filled" : "",
+                        isChartChanged ? "animate-bounce" : ""
+                        ].join("")} to="/cart">
                     <svg className="fill-current" width="26" height="24" viewBox="0 0 26 24">
                     <path
                         d="M10.8754 18.7312C9.61762 18.7312 8.59436 19.7115 8.59436 20.9164C8.59436 22.1214 9.61762 23.1017 10.8754 23.1017C12.1331 23.1017 13.1564 22.1214 13.1564 20.9164C13.1563 19.7115 12.1331 18.7312 10.8754 18.7312ZM10.8754 21.8814C10.3199 21.8814 9.86796 21.4485 9.86796 20.9163C9.86796 20.3842 10.3199 19.9512 10.8754 19.9512C11.4308 19.9512 11.8828 20.3842 11.8828 20.9163C11.8828 21.4486 11.4308 21.8814 10.8754 21.8814Z"
