@@ -14,7 +14,7 @@ import ErrorPageMessage from "parts/ErrorPageMessage";
 
 import useAsync from "helpers/hooks/useAsync";
 import fetch from "helpers/fetch";
-
+import Document from "parts/Document";
 function LoadingProductDetails() {
   return (
     <section className="container mx-auto">
@@ -115,7 +115,7 @@ export default function HomePage() {
   }, [run, idp]);
 
   return (
-    <>
+    <Document>
       <Header theme="black" />
 
       <Breadcrumb
@@ -148,6 +148,6 @@ export default function HomePage() {
 
       <Sitemap />
       <Footer />
-    </>
+    </Document>
   );
 }

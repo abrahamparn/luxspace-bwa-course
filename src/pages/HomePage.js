@@ -6,13 +6,12 @@ import JustArrive from "parts/HomePage/JustArrive";
 import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
 import Clients from "parts/Clients";
-import useScrollAnchor from "helpers/hooks/useScrollAnchor";
-import useModalDOM from "helpers/hooks/useModalDOM";
+import Document from "parts/Document";
+
 export default function HomePage(){
-    useScrollAnchor()
-    useModalDOM()
+
     return(
-        <>
+        <Document>
             <Header/>
             <Hero/>
             <BrowsTheRoom/>
@@ -20,6 +19,6 @@ export default function HomePage(){
             <Clients/>
             <Sitemap/>
             <Footer/>
-        </>
+        </Document>
     )
 } 

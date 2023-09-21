@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 
 import Footer from "parts/Sitemap";
 import Sitemap from "parts/Footer";
+import Document from 'parts/Document';
 export default function Congratulations() {
   return (
-    <>
+    <Document>
     <Header theme="black" />
 
 <Breadcrumb
@@ -45,7 +46,7 @@ export default function Congratulations() {
 <Sitemap />
 <Footer />
 
-    </>
+    </Document>
 
   )
 }
