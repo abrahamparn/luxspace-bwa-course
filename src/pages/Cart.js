@@ -10,6 +10,7 @@ import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
 import Document from "parts/Document";
 
+
 export default function Cart() {
   return (
     <Document>
